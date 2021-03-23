@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "wqCYZ3x0K8OW28OhWmOPH8QwPR75/nN8K/sfZkV5Aj1i7pY1yeMSMTZ2KhJdHu4wpzcZ9rjt22sKRerKrMXesw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\HP\\source\\repos\\ReCapProject\\ConsoleUI\\ConsoleUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

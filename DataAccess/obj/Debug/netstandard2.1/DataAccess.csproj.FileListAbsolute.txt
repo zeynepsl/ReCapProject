@@ -1,0 +1,12 @@
+C:\Users\HP\source\repos\ReCapProject\DataAccess\bin\Debug\netstandard2.1\DataAccess.deps.json
+C:\Users\HP\source\repos\ReCapProject\DataAccess\bin\Debug\netstandard2.1\DataAccess.dll
+C:\Users\HP\source\repos\ReCapProject\DataAccess\bin\Debug\netstandard2.1\DataAccess.pdb
+C:\Users\HP\source\repos\ReCapProject\DataAccess\bin\Debug\netstandard2.1\Entities.dll
+C:\Users\HP\source\repos\ReCapProject\DataAccess\bin\Debug\netstandard2.1\Entities.pdb
+C:\Users\HP\source\repos\ReCapProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\ReCapProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.AssemblyInfoInputs.cache
+C:\Users\HP\source\repos\ReCapProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.AssemblyInfo.cs
+C:\Users\HP\source\repos\ReCapProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\ReCapProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.csproj.CopyComplete
+C:\Users\HP\source\repos\ReCapProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.dll
+C:\Users\HP\source\repos\ReCapProject\DataAccess\obj\Debug\netstandard2.1\DataAccess.pdb
