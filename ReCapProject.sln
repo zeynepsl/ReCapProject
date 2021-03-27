@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entiti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{29D5CE9E-DF13-4510-B741-545045ED8658}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CarRentalDatabase", "CarRentalDatabase\CarRentalDatabase.sqlproj", "{7F6CCAF6-D460-4DEF-83F5-20CEBD80F256}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,12 +33,6 @@ Global
 		{29D5CE9E-DF13-4510-B741-545045ED8658}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29D5CE9E-DF13-4510-B741-545045ED8658}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29D5CE9E-DF13-4510-B741-545045ED8658}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F6CCAF6-D460-4DEF-83F5-20CEBD80F256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F6CCAF6-D460-4DEF-83F5-20CEBD80F256}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F6CCAF6-D460-4DEF-83F5-20CEBD80F256}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{7F6CCAF6-D460-4DEF-83F5-20CEBD80F256}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F6CCAF6-D460-4DEF-83F5-20CEBD80F256}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F6CCAF6-D460-4DEF-83F5-20CEBD80F256}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
