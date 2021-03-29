@@ -1,0 +1,9 @@
+C:\Users\HP\source\repos\ReCapProject\Core\bin\Debug\netstandard2.1\Core.deps.json
+C:\Users\HP\source\repos\ReCapProject\Core\bin\Debug\netstandard2.1\Core.dll
+C:\Users\HP\source\repos\ReCapProject\Core\bin\Debug\netstandard2.1\Core.pdb
+C:\Users\HP\source\repos\ReCapProject\Core\obj\Debug\netstandard2.1\Core.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\ReCapProject\Core\obj\Debug\netstandard2.1\Core.AssemblyInfoInputs.cache
+C:\Users\HP\source\repos\ReCapProject\Core\obj\Debug\netstandard2.1\Core.AssemblyInfo.cs
+C:\Users\HP\source\repos\ReCapProject\Core\obj\Debug\netstandard2.1\Core.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\ReCapProject\Core\obj\Debug\netstandard2.1\Core.dll
+C:\Users\HP\source\repos\ReCapProject\Core\obj\Debug\netstandard2.1\Core.pdb
