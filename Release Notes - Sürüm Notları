@@ -1,17 +1,23 @@
 V 1.1
 Projenin ana hattı oluşturuldu
+
 V 1.2
 Veritabanı eklendi
-V 1.2
+
+V 1.3
 Brand ve Color nesneleri eklendi
 Sql server tarafında yeni veri tabanı oluşturuldu 
 Nesneler için Entity Framework yapısı oluşturuldu
 Generic IEntityRepository altyapısı oluşturuldu
 GetCarsByBrandId , GetCarsByColorId servisleri eklendi
-V 1.3
+
+V 1.4
 Core katmanı oluşturuldu. 
 Evrensel ve ortak kodlar Core katmanına taşındı
 IEntity, IDto, IEntityRepository, EfEntityRepositoryBase dosyaları oluşturuldu, Core katmanına taşındı
 Tüm sınıflar için CRUD operasyonları hazırlandı ve Console’da test edildi
 Arabalar şu bilgiler olacak şekilde listelendi. CarName, BrandName, ColorName, DailyPrice.
 
+V 1.5
+Core katmanında Results yapılandırması yapıldı
+Tüm Business sınıfları Results yapılandırmasına göre code refactoring edildi
