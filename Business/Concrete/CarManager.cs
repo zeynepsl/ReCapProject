@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -22,34 +24,49 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        public List<Car> GetAll()
+        public IResult Add(Car car)
         {
-            //iş kodları . .
-            //eğer ki iş kodlarından geçilirse DataAccess e erişim yapılacak
-            return _carDal.GetAll();
-        }
-
-        public List<Car> GetCarsByBrandId(int id)
-        {
-            return _carDal.GetAll(c => c.CarId == id);
-        }
-
-        public List<Car> GetCarsByColorId(int id)
-        {
-            return _carDal.GetAll(c => c.ColorId == id);
-        }
-
-        public void Add(Car car)
-        {
-            if(car.Description.Length > 2 && car.DailyPrice > 0)
+            if (car.Description.Length > 2 && car.DailyPrice > 0)//eğer ki iş kodlarından geçerse,
             {
-                //eğer ki iş kodlarından geçerse,
                 _carDal.Add(car);//DataAccess katmanına bağlanacağız.
+                return new SuccessResult(Messages.CarAdded);
             }
             else
             {
-                Console.WriteLine("kaydetme basarisiz, lutfen urun aciklamasini 2 karakterden buyuk ve gunluk masrafi sifirdan buyuk girin");
+                return new ErrorResult(Messages.CarDescriptionInValid);
             }
+        }
+
+        public IDataResult<List<Car>> GetAll()
+        {
+            if (DateTime.Now.Hour==23)
+            {
+                return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
+                
+            }
+
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListed);
+            //Ben DataResult döndürüyorum
+            //çalıştığım tip : Car, List<Car>
+
+            //döndürdüğüm data       (Data)     : _carDal.GetAll()
+            //işlem sonucum          (Success)  : true
+            //bilgilendirici mesajım (Messsage) : Messages.CarsListed
+        }
+
+        public IDataResult<List<Car>> GetCarsByBrandId(int id)
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.CarId == id));
+        }
+
+        public IDataResult<List<Car>> GetCarsByColorId(int id)
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id));
+        }
+
+        public IDataResult<List<CarDetailsDto>> GetCarDetails()
+        {
+            return new SuccessDataResult<List<CarDetailsDto>>(_carDal.GetCarDetails());
         }
 
         public void Delete(Car car)
@@ -57,14 +74,16 @@ namespace Business.Concrete
             _carDal.Delete(car);
         }
 
-        public void Update(Car car)
+        public IResult Update(Car car)
         {
-            _carDal.Delete(car);
+            if(car.Description.Length > 2 && car.DailyPrice > 0)
+            {
+                _carDal.Update(car);
+                return new SuccessResult(Messages.CarUpdated);
+            }
+
+            return new ErrorResult(Messages.CarDescriptionInValid);
         }
 
-        public List<CarDetailsDto> GetCarDetails()
-        {
-            return _carDal.GetCarDetails();
-        }
     }
 }
