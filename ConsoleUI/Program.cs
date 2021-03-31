@@ -10,12 +10,23 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new EfCarDal());
+            //CarTest();
 
+            Brandtest();
+
+            // ColorTest();
+
+            //OzellikleriyleArabaListele();
+
+        }
+
+        private static void CarTest()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
             Car car = new Car
             {
-                CarName="bmw",
-                CarId = 5,
+                CarName = "bmw",
+                CarId = 6,
                 ColorId = 2,
                 BrandId = 1,
                 DailyPrice = 200,
@@ -31,24 +42,47 @@ namespace ConsoleUI
             carManager.Add(car);
 
             //mevcut arabaları listeleyelim
-            ArabaListele(carManager);
-
-            //biraz önce eklediğimiz arabayı silelim
-            //carManager.Delete(car);
+            ArabaListele();
 
             //arabanın özelliklerini güncelleyelim
-            //car.Description = "volvo, otomatik, deri koltuk";
-            //carManager.Update(car);
+            car.Description = "volvo, otomatik, deri koltuk";
+            carManager.Update(car);
 
+            //biraz önce eklediğimiz arabayı silelim
+            carManager.Delete(car);
+        }
+
+        private static void OzellikleriyleArabaListele()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            var result = carManager.GetCarDetails();
             Console.WriteLine("arabalar : ");
-            foreach(var car1 in carManager.GetCarDetails())
+            if (result.Success==true)
             {
-                Console.WriteLine(car1.CarName + " - " + car1.BrandName + " - " + car1.ColorName + " - " + car1.DailyPrice);
+                foreach (var car1 in result.Data)
+                {
+                    Console.WriteLine(car1.CarName + " - " + car1.BrandName + " - " + car1.ColorName + " - " + car1.DailyPrice);
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
 
-            //Brandtest();
-            //ColorTest();
-
+        private static void ArabaListele()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            var result = carManager.GetAll();
+            //arabaları listeleyelim
+            Console.WriteLine("mevcut araba listesi : ");
+            if (result.Success)
+            {
+                foreach (var car1 in result.Data)
+                {
+                    Console.WriteLine(car1.Description);
+                }
+            }
         }
 
         private static void Brandtest()
@@ -62,15 +96,16 @@ namespace ConsoleUI
             brandManager.Add(brand);//veritabanına yeni marka ekleyelim 
 
             Console.WriteLine("marka listesi:");
-            foreach(var brand1 in brandManager.GetAll())
+            foreach(var brand1 in brandManager.GetAll().Data)
             {
                 Console.WriteLine(brand1.BrandName);
             }
+
             brand.BrandName = "volvo";//yeni eklediğimiz markayı güncelleyelim
             brandManager.Update(brand);
 
             Console.WriteLine("güncel marka listesi:");
-            foreach (var brand1 in brandManager.GetAll())
+            foreach (var brand1 in brandManager.GetAll().Data)
             {
                 Console.WriteLine(brand1.BrandName);
             }
@@ -84,41 +119,35 @@ namespace ConsoleUI
             Color color = new Color()
             {
                 ColorId = 5,
-                ColorName = "siyah"
+                ColorName = "beyaz"
             };
+
             colorManager.Add(color);
 
             Console.WriteLine("renk listesi:");
-            foreach(var color1 in colorManager.GetAll())
+            foreach(var color1 in colorManager.GetAll().Data)
             {
                 Console.WriteLine(color1.ColorName);
             }
+
             color.ColorName = "beyaz";
             colorManager.Update(color);
 
             Console.WriteLine("güncel renk listesi:");
-            foreach (var color1 in colorManager.GetAll())
+            foreach (var color1 in colorManager.GetAll().Data)
             {
                 Console.WriteLine(color1.ColorName);
             }
             colorManager.Delete(color);
 
             Console.WriteLine("güncel renk listesi:");
-            foreach (var color1 in colorManager.GetAll())
+            foreach (var color1 in colorManager.GetAll().Data)
             {
                 Console.WriteLine(color1.ColorName);
             }
         }
 
-        private static void ArabaListele(CarManager carManager)
-        {
-            //arabaları listeleyelim
-            Console.WriteLine("mevcut araba listesi : ");
-            foreach (var car1 in carManager.GetAll())
-            {
-                Console.WriteLine(car1.Description);
-            }
-        }
+        
 
     }
 }
