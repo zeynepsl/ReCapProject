@@ -21,3 +21,33 @@ Arabalar şu bilgiler olacak şekilde listelendi. CarName, BrandName, ColorName,
 V 1.5
 Core katmanında Results yapılandırması yapıldı
 Tüm Business sınıfları Results yapılandırmasına göre code refactoring edildi
+
+V 1.6
+Business
+ Abstract
+  User, Customer ve Rental Nesnelerinin Servisleri oluşturuldu
+ Concrete
+  User, Customer ve Rental Nesnelerinin Manger sınıfları oluşturuldu
+ Constants
+  Mesajlar güncellendi
+  
+Core
+
+DataAccess
+ Abstract
+  User, Customer ve Rental Nesnelerinin interface'i oluşturuldu
+ Concrete
+  EntityFramework
+   User, Customer, Rental Nesneleri için somut sınıf oluşturuldu
+   Yeni oluşturulan Class’lar Veri Tabanı ile ilişkilendirildi
+   
+Entity
+ Concrete
+  User, customer, rental nesneleri eklendi
+ Dtos
+ RentalDetails Sınıfı eklendi
+
+Hata no:1 Tablo birleştirememe
+Primary key i olmayan bir tablo join edilemez
+"Müşteri, tanımlanacak bir birincil anahtar gerektirir."
+Customer a primary key eklendi
