@@ -15,9 +15,9 @@ namespace Business.Constants
         internal static string MaintenanceTime = "sistem bakımda";
         internal static string CarsListed = "arabalar listelendi";
         internal static string CarUpdated = "araba güncellendi";
-        internal static string Added;
-        internal static string Updated;
-        internal static string NameInValid;
-        internal static string Deleted;
+        internal static string Added = "Eklendi";
+        internal static string Updated = "Güncellendi";
+        internal static string NameInValid = "İsim geçersiz";
+        internal static string Deleted = "Silindi";
     }
 }
