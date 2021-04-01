@@ -1,4 +1,7 @@
 ﻿using Business.Concrete;
+using Business.Constants;
+using Core.Utilities.Results;
+using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
@@ -12,12 +15,84 @@ namespace ConsoleUI
         {
             //CarTest();
 
-            Brandtest();
+            //Brandtest();
 
             // ColorTest();
 
             //OzellikleriyleArabaListele();
 
+            //KullaniciEkleme();
+
+            //ArabaKiralamaDetaylariGöster();
+
+            ArabaKirala();
+
+        }
+
+        private static IResult ArabaKirala()
+        {
+            Console.WriteLine("araba kiralama");
+
+            int _carId, _customerId;
+            DateTime _dateTime;
+
+            CarManager carManager = new CarManager(new EfCarDal());
+            var result = carManager.GetCarDetails();
+
+            foreach (var car in result.Data)
+            {
+                Console.WriteLine(car.CarName + " : " + car.CarId);
+            }
+
+            Console.WriteLine("Kiralamak istediğiniz arabanın Id bilgisini girniz : ");
+            _carId = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Araba kiralama tarihini giriniz [ay/gun/yıl]]:");
+            _dateTime = Convert.ToDateTime(Console.ReadLine());
+
+            Console.WriteLine("kullanıc Id bilginizi giriniz : ");
+            _customerId = Convert.ToInt32(Console.ReadLine());
+
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            Rental rental = new Rental { CarId = _carId, CustomerId = _customerId, RentDate = _dateTime };
+
+            rentalManager.Add(rental);
+            return new SuccessResult();
+        }
+
+        private static void ArabaKiralamaDetaylariGöster()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var result = rentalManager.GetRentalDetails();
+            Console.WriteLine("araba kiralama  detayları : ");
+            if (result.Success)
+            {
+                foreach (var rental in result.Data)
+                {
+                    Console.WriteLine(rental.CarDescription + " - " + rental.BrandName + " - " + rental.CarModelYear);
+                }
+            }
+        }
+
+        private static IResult KullaniciEkleme()
+        {
+            string _firstName, _lastName, _email;
+            int _password;
+            Console.WriteLine("-- KULLANICI EKLEME --");
+
+            Console.WriteLine("adınızı girin :");
+            _firstName = Console.ReadLine();
+            Console.WriteLine("soyadınızı girin :");
+            _lastName = Console.ReadLine();
+            Console.WriteLine("e-posta adresinizi girin :");
+            _email = Console.ReadLine();
+            Console.WriteLine("şifrenizi girin (sadece rakamlar):");
+            _password = Convert.ToInt32(Console.ReadLine());
+
+            UserManager userManager = new UserManager(new EfUserDal());
+            User user = new User { FirstName = _firstName, LastName = _lastName, Email = _email, Password = _password };
+            userManager.Add(user);
+            return new SuccessResult();
         }
 
         private static void CarTest()
