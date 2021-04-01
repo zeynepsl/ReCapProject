@@ -109,21 +109,10 @@ namespace ConsoleUI
                 Description = "bmw, otomatik"
             };
 
-            //araba ekleyelim
-            //burada arayüzden arabanın özelliklerini girerek yeni bir araba eklemeye çalışıyoruz
-            //arayüzden Business a bağlanıyoruz
-            //Business daki iş kodlarından (if..... vs..) geçerse DataAccess katmanına bağlanacağız
-            //DataAccess de araba kaydedilecek
             carManager.Add(car);
-
-            //mevcut arabaları listeleyelim
             ArabaListele();
-
-            //arabanın özelliklerini güncelleyelim
             car.Description = "volvo, otomatik, deri koltuk";
             carManager.Update(car);
-
-            //biraz önce eklediğimiz arabayı silelim
             carManager.Delete(car);
         }
 
@@ -168,7 +157,7 @@ namespace ConsoleUI
                 BrandId = 3,
                 BrandName = "bmw"
             };
-            brandManager.Add(brand);//veritabanına yeni marka ekleyelim 
+            brandManager.Add(brand);
 
             Console.WriteLine("marka listesi:");
             foreach(var brand1 in brandManager.GetAll().Data)
@@ -176,7 +165,7 @@ namespace ConsoleUI
                 Console.WriteLine(brand1.BrandName);
             }
 
-            brand.BrandName = "volvo";//yeni eklediğimiz markayı güncelleyelim
+            brand.BrandName = "volvo";
             brandManager.Update(brand);
 
             Console.WriteLine("güncel marka listesi:");
@@ -185,7 +174,7 @@ namespace ConsoleUI
                 Console.WriteLine(brand1.BrandName);
             }
 
-            brandManager.Delete(brand);//oluşturduğumuz markayı silelim
+            brandManager.Delete(brand);
         }
 
         private static void ColorTest()
