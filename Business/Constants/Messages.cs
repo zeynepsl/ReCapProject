@@ -17,5 +17,7 @@ namespace Business.Constants
         internal static string CarUpdated = "araba güncellendi";
         internal static string Added;
         internal static string Updated;
+        internal static string NameInValid;
+        internal static string Deleted;
     }
 }
