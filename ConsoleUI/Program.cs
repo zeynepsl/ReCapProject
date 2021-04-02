@@ -34,7 +34,7 @@ namespace ConsoleUI
             Console.WriteLine("araba kiralama");
 
             int _carId, _customerId;
-            DateTime _dateTime;
+            DateTime _rentDate, _returnDate;
 
             CarManager carManager = new CarManager(new EfCarDal());
             var result = carManager.GetCarDetails();
@@ -47,14 +47,14 @@ namespace ConsoleUI
             Console.WriteLine("Kiralamak istediğiniz arabanın Id bilgisini girniz : ");
             _carId = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Araba kiralama tarihini giriniz [yyyy/aa/gggg]:");
-            _dateTime = Convert.ToDateTime(Console.ReadLine());
-
             Console.WriteLine("kullanıc Id bilginizi giriniz : ");
             _customerId = Convert.ToInt32(Console.ReadLine());
 
+            _rentDate = DateTime.Now;
+            _returnDate = DateTime.Now.AddDays(5);
+
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            Rental rental = new Rental { CarId = _carId, CustomerId = _customerId, RentDate = _dateTime };
+            Rental rental = new Rental { CarId = _carId, CustomerId = _customerId, RentDate = _rentDate , ReturnDate=_returnDate};
 
             rentalManager.Add(rental);
             return new SuccessResult();
