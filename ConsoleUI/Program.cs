@@ -47,7 +47,7 @@ namespace ConsoleUI
             Console.WriteLine("Kiralamak istediğiniz arabanın Id bilgisini girniz : ");
             _carId = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Araba kiralama tarihini giriniz [ay/gun/yıl]]:");
+            Console.WriteLine("Araba kiralama tarihini giriniz [yyyy/aa/gggg]:");
             _dateTime = Convert.ToDateTime(Console.ReadLine());
 
             Console.WriteLine("kullanıc Id bilginizi giriniz : ");

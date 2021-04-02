@@ -69,9 +69,10 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailsDto>>(_carDal.GetCarDetails());
         }
 
-        public void Delete(Car car)
+        public IResult Delete(Car car)
         {
             _carDal.Delete(car);
+            return new SuccessResult(Messages.Deleted);
         }
 
         public IResult Update(Car car)

@@ -39,9 +39,10 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Added);
         }
 
-        public void Delete(Color color)
+        public IResult Delete(Color color)
         {
             _colorDal.Delete(color);
+            return new SuccessResult(Messages.Deleted);
         }
 
         public IResult Update(Color color)

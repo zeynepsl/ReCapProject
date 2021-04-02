@@ -34,9 +34,10 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Added);
         }
 
-        public void Delete(Brand brand)
+        public IResult Delete(Brand brand)
         {
             _brandDal.Delete(brand);
+            return new SuccessResult(Messages.Deleted);
         }
 
         public IResult Update(Brand brand)
