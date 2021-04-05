@@ -67,3 +67,4 @@ C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.dll
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.Extras.DynamicProxy.dll
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.Extensions.DependencyInjection.dll
+C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\FluentValidation.dll
