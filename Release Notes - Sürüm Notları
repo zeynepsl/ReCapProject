@@ -61,10 +61,27 @@ Autofac Desteği eklendi
 
  1. Business
   Autofac, Autofac.Extras.DynamicProxy Paketleri eklendi
+  
   DependencyResolvers Klasörü oluşturuldu
   DependencyResolvers klasörü altında Autofac alt klasörü oluşturuldu
-  1.1. Autofac
-   AutofacBusinessModule Class'ı oluşturuldu. IoC Container yapılandırması yapıldı
+  Autofac klasörü içinde AutofacBusinessModule Class'ı oluşturuldu. IoC Container yapılandırması yapıldı
+   
+  ValidationRules klasörü oluşturuldu
+  FluentValidation alt klasörü oluşturuldu ve FluentValidation paketi eklendi
+  Tüm Classlar için Validation kuralları yazıldı
+  
 
- 2. WebAPI
+ 2. Core
+  CrossCuttingConcerns klasörü eklendi
+  CrossCuttingConcerns klasörüne Validation klasörü eklendi
+  Validation klasörüne static ValidationTool Sınıfı eklendi
+  
+  Utilities klasörüne Interceptors alt klasörü eklendi
+  
+  Aspects -> Autofac -> Validation klasörleri eklendi
+  Validation klasörüne ValidationAspect sınıfı eklendi
+  
+
+ 3. WebAPI
   Autofac Container kullanımı aktif hale getirildi
+  
