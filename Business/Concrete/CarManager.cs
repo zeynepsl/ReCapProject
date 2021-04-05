@@ -1,9 +1,13 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,30 +28,39 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            if (car.Description.Length > 2 && car.DailyPrice > 0)//eğer ki iş kodlarından geçerse,
-            {
-                _carDal.Add(car);//DataAccess katmanına bağlanacağız.
-                return new SuccessResult(Messages.CarAdded);
-            }
-            else
-            {
-                return new ErrorResult(Messages.CarDescriptionInValid);
-            }
+            //if (car.Description.Length > 2 && car.DailyPrice > 0)//eğer ki iş kodlarından geçerse,
+            //{
+            //    _carDal.Add(car);//DataAccess katmanına bağlanacağız.
+            //    return new SuccessResult(Messages.CarAdded);
+            //} ARTIK FLUENT_VALIDATION İLE ÇALIŞIYORUZ:
+
+            //var context = new ValidationContext<Car>(car);
+            //CarValidator carValidator = new CarValidator();
+            //var result = carValidator.Validate(context);
+            //if (!result.IsValid)
+            //{
+            //    throw new ValidationException(result.Errors);
+            //}
+            //ama burada değişen sadece CarValidator ve car, Core a aktaracağız evrensel kulllanılabilir hale getireceğiz
+
+            // ValidationTool.Validate(new CarValidator(), car);
+
+            //log, cache, transaction vs gelecek buraya karışacak, bunun yerine AOP kullanıyoruz
+            //metodun en üstüne yazdık
+
+            //business codes
+
+            _carDal.Add(car);
+            return new SuccessResult(Messages.CarAdded); 
+            
         }
 
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour==23)
-            {
-                return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
-                
-            }
-
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListed);
-            //Ben DataResult döndürüyorum
-            //çalıştığım tip : Car, List<Car>
 
             //döndürdüğüm data       (Data)     : _carDal.GetAll()
             //işlem sonucum          (Success)  : true
@@ -75,6 +88,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Deleted);
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Update(Car car)
         {
             if(car.Description.Length > 2 && car.DailyPrice > 0)

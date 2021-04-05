@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -18,14 +20,12 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
+        //iş kodlarından geçerse, DataAccess katmanına bağlanacağız
+        [ValidationAspect(typeof(UserValidator))]
         public IResult Add(User user)
         {
-            if(user.FirstName.Length > 2)//iş kodlarından geçerse,
-            {
-                _userDal.Add(user); //DataAccess katmanına bağlanacağız
-                return new SuccessResult(Messages.Added);
-            }
-            return new ErrorResult(Messages.NameInValid);
+            _userDal.Add(user);
+            return new SuccessResult(Messages.Added);
         }
 
         public IResult Delete(User user)
@@ -39,14 +39,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<User>>(_userDal.GetAll());
         }
 
+        [ValidationAspect(typeof(UserValidator))]
         public IResult Update(User user)
         {
-            if (user.FirstName.Length > 2)//iş kodlarından geçerse,
-            {
-                _userDal.Update(user); //DataAccess katmanına bağlanacağız
-                return new SuccessResult(Messages.Updated);
-            }
-            return new ErrorResult();
+            _userDal.Update(user);
+            return new SuccessResult(Messages.Updated);
         }
     }
 }

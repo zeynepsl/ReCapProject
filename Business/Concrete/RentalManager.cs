@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -19,9 +21,8 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
 
-        //•	Arabanın kiralanabilmesi için arabanın teslim edilmesi gerekmektedir.
-        //ReturnDate(Teslim Tarihi): Araba teslim edilmemişse ReturnDate null'dır.
-        //yani arabayı kiralayabilmek için Returndate null dan farklı olacak
+        //arabayı kiralayabilmek için Returndate(teslim tarihi) null dan farklı olacak
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
             if (rental.ReturnDate != null)
@@ -48,6 +49,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<RentalDetailsDto>>(_rentalDal.GetRentalDetails());
         }
 
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult Update(Rental rental)
         {
             _rentalDal.Update(rental);
