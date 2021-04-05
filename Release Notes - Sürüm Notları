@@ -51,3 +51,20 @@ Hata no:1 Tablo birleştirememe
 Primary key i olmayan bir tablo join edilemez
 "Müşteri, tanımlanacak bir birincil anahtar gerektirir."
 Customer a primary key eklendi
+
+V 1.7
+WebAPI katmanı eklendi
+Tüm nesneler için Controller oluşturuldu
+
+V 1.8
+Autofac Desteği eklendi
+
+ 1. Business
+  Autofac, Autofac.Extras.DynamicProxy Paketleri eklendi
+  DependencyResolvers Klasörü oluşturuldu
+  DependencyResolvers klasörü altında Autofac alt klasörü oluşturuldu
+  1.1. Autofac
+   AutofacBusinessModule Class'ı oluşturuldu. IoC Container yapılandırması yapıldı
+
+ 2. WebAPI
+  Autofac Container kullanımı aktif hale getirildi
