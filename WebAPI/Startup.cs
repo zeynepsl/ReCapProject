@@ -5,6 +5,7 @@ using DataAccess.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,35 +31,27 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
-            services.AddSingleton<ICarService, CarManager>();//controller'a diyoruz :
-            //ICarService tipinde bir baðýmlýlýk görürsen (constructorda senden ICarService istenirse)
-            //onun karþýlýðý CarManager dýr; arka planda CarManager new i oluþtur, paketle ve constructor'a ver
+            var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
-            //ama hata aldýk
-            //CarManager'ý new lerken onun da ICarDal baðýmlýlýðý olduðunu gördükk : 
-            //services.AddSingleton<ICarDal, EfCarDal>();//ICarDal'ýn karþýlýðý EfCarDal'dýr
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //    .AddJwtBearer(options =>
+            //    {
+            //        options.TokenValidationParameters = new TokenValidationParameters
+            //        {
+            //            ValidateIssuer = true,
+            //            ValidateAudience = true,
+            //            ValidateLifetime = true,
+            //            ValidIssuer = tokenOptions.Issuer,
+            //            ValidAudience = tokenOptions.Audience,
+            //            ValidateIssuerSigningKey = true,
+            //            IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+            //        };
+            //    });
 
-            //services.AddSingleton<IBrandService, BrandManager>();
-            //services.AddSingleton<IBrandDal, EfBrandDal>();
-
-            //services.AddSingleton<IColorService, ColorManager>();
-            //services.AddSingleton<IColorDal, EfColorDal>();
-
-            //services.AddSingleton<ICustomerService, CustomerManager>();
-            //services.AddSingleton<ICustomerDal, EfCustomerDal>();
-
-            //services.AddSingleton<IRentalService, RentalManager>();
-            //services.AddSingleton<IRentalDal, EfRentalDal>();
-
-            //services.AddSingleton<IUserService, UserManager>();
-            //services.AddSingleton<IUserDal, EfUserDal>();
-
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
-            });
+            //services.AddDependencyResolvers(new ICoreModule[] {
+            //    new CoreModule()
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,13 +60,16 @@ namespace WebAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
@@ -83,4 +79,5 @@ namespace WebAPI
             });
         }
     }
+
 }

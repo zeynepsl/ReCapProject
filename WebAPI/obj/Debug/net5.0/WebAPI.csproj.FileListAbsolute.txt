@@ -68,3 +68,6 @@ C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.Extras.Dyn
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.Extensions.DependencyInjection.dll
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\System.IO.Pipelines.dll

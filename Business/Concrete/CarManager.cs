@@ -3,6 +3,7 @@ using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -49,7 +50,7 @@ namespace Business.Concrete
             // ValidationTool.Validate(new CarValidator(), car);
 
             //log, cache, transaction vs gelecek buraya karışacak, bunun yerine AOP kullanıyoruz
-            //metodun en üstüne yazdık
+            //metodun en üstüne yazdık VEE SUPERRR
 
             //business codes
 
@@ -61,11 +62,10 @@ namespace Business.Concrete
         public IDataResult<List<Car>> GetAll()
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListed);
-
-            //döndürdüğüm data       (Data)     : _carDal.GetAll()
-            //işlem sonucum          (Success)  : true
-            //bilgilendirici mesajım (Messsage) : Messages.CarsListed
         }
+        //döndürdüğüm data       (Data)     : _carDal.GetAll()
+        //işlem sonucum          (Success)  : true
+        //bilgilendirici mesajım (Messsage) : Messages.CarsListed
 
         public IDataResult<List<Car>> GetCarsByBrandId(int id)
         {

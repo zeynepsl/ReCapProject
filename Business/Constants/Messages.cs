@@ -11,13 +11,15 @@ namespace Business.Constants
     //static == bu Class new lenemez
     {
         public static string CarDescriptionInValid = "Araba açıklaması geçersiz";
-        internal static string CarAdded = "araba eklendi";
-        internal static string MaintenanceTime = "sistem bakımda";
-        internal static string CarsListed = "arabalar listelendi";
-        internal static string CarUpdated = "araba güncellendi";
-        internal static string Added = "Eklendi";
-        internal static string Updated = "Güncellendi";
-        internal static string NameInValid = "İsim geçersiz";
-        internal static string Deleted = "Silindi";
+        public static string CarAdded = "araba eklendi";
+        public static string MaintenanceTime = "sistem bakımda";
+        public static string CarsListed = "arabalar listelendi";
+        public static string CarUpdated = "araba güncellendi";
+        public static string Added = "Eklendi";
+        public static string Updated = "Güncellendi";
+        public static string NameInValid = "İsim geçersiz";
+        public static string Deleted = "Silindi";
+        public static string Listed = "listelendi";
+        public static string CarImageLimited = "araba resmi limitine ulaşıldı";
     }
 }

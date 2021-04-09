@@ -68,3 +68,8 @@ C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\runtimes\win\li
 C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Core.dll
 C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Core.pdb
+C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Autofac.dll
+C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Autofac.Extensions.DependencyInjection.dll
+C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Autofac.Extras.DynamicProxy.dll
+C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Castle.Core.dll
+C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\FluentValidation.dll

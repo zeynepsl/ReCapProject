@@ -15,6 +15,8 @@ namespace Core.Aspects.Autofac.Validation
         private Type _validatorType;
         //bana validatorType ı ver
         //attribute te type ile geçmek zorundayız
+
+        //defensive coding - savunma odaklı
         public ValidationAspect(Type validatorType)
         {
             //gönderilen validatorType bir validator değilse
@@ -30,13 +32,35 @@ namespace Core.Aspects.Autofac.Validation
         protected override void OnBefore(IInvocation invocation)
         {
             var validator = (IValidator)Activator.CreateInstance(_validatorType);
+            //şu an elimde : CarValidator ın bir instance ı var 
+
             var entityType = _validatorType.BaseType.GetGenericArguments()[0];
+            //CarValidator ın base type ını bul, onun generic argümanlarından ilkini bul
+            //şu an elimde : car tipi var
+
             var entities = invocation.Arguments.Where(t => t.GetType() == entityType);
+
             foreach (var entity in entities)
             {
                 ValidationTool.Validate(validator, entity);
-                //ValidationTool u CarManager dan sildik ama merkezi bir noktaya aldık
             }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+//invocation ın (metodun) argümanlarını (parametrelerini) gez
+//eğer oradaki bir tip (1 den fazla olabilir), entityType (product) türünde ise
+//onları validate et
+
+
+//ValidationTool u CarManager dan sildik ama merkezi bir noktaya aldık
