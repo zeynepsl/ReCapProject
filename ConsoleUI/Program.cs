@@ -1,5 +1,6 @@
 ﻿using Business.Concrete;
 using Business.Constants;
+using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
@@ -90,8 +91,8 @@ namespace ConsoleUI
             _password = Convert.ToInt32(Console.ReadLine());
 
             UserManager userManager = new UserManager(new EfUserDal());
-            User user = new User { FirstName = _firstName, LastName = _lastName, Email = _email, Password = _password };
-            userManager.Add(user);
+            //User user = new User { FirstName = _firstName, LastName = _lastName, Email = _email, Password = _password };
+            //userManager.Add(user);
             return new SuccessResult();
         }
 

@@ -1,13 +1,14 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities.Concrete;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
 {
     public static class Messages
-    //Mesajlar Class ı niye new lensin
-    //Bu yüzden new lemeden kullanabilmek için static yazdık
+    //new lemeden kullanabilmek için static yazdık
     //static == bu Class new lenemez
     {
         public static string CarDescriptionInValid = "Araba açıklaması geçersiz";
@@ -21,5 +22,12 @@ namespace Business.Constants
         public static string Deleted = "Silindi";
         public static string Listed = "listelendi";
         public static string CarImageLimited = "araba resmi limitine ulaşıldı";
+        public static string UserNotFound = "kullanıcı bulunamadı";
+        public static string PasswordError="Şifre Hatalı";
+        public static string SuccessfulLogin = "giriş başarılı";
+        public static string UserAlreadyExist = "kullanıcı zaten mevcut";
+        public static string UserRegistered = "kullanıcı başarıyla kaydedildi";
+        public static string AccessTokenCreated = "Access Token başrıyla oluşturuldu";
+        public static string AuthorizationDenied = "Yetkilendirme Reddedildi";
     }
 }

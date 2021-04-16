@@ -73,3 +73,7 @@ C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Autofac.Extensi
 C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Autofac.Extras.DynamicProxy.dll
 C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.Extensions.Configuration.dll
+C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\System.IO.Pipelines.dll

@@ -19,7 +19,6 @@ C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.Identity
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -71,3 +70,5 @@ C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\FluentValidation.d
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\System.IO.Pipelines.dll
+C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\HP\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll

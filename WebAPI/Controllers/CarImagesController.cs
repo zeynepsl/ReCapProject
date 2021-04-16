@@ -67,9 +67,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getimagesbycarid")]
-        public IActionResult GetImagesByCarId(CarImage carImage)
+        public IActionResult GetImagesByCarId(int carId)
         {
-            var result = _carImageService.GetImagesByCarId(carImage.CarId);
+            var result = _carImageService.GetImagesByCarId(carId);
             if (result.Success)
             {
                 return Ok(result);
@@ -78,9 +78,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getimagesbydate")]
-        public IActionResult GetImagesByDate(CarImage carImage)
+        public IActionResult GetImagesByDate(DateTime time)
         {
-            var result = _carImageService.GetImagesByDate(carImage.Date);
+            var result = _carImageService.GetImagesByDate(time);
             if (result.Success)
             {
                 return Ok(result);

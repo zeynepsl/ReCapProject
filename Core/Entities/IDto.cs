@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Core.Entities
 {
+    //Dto ları imzalamak için interface
     public interface IDto
     {
     }
