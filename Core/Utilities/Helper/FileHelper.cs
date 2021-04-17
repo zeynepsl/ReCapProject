@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Core.Utilities.Helper
 {
-    public class FileHelper
+    public class FileHelper: IFileHelper
     {
-        public static string Add(IFormFile file)
+        public string Add(IFormFile file)
         {
             var result = newPath(file);
             try
@@ -31,7 +31,7 @@ namespace Core.Utilities.Helper
             return result.Path2;
         }
 
-        public static string Update(string sourcePath, IFormFile file)
+        public string Update(string sourcePath, IFormFile file)
         {
             var result = newPath(file);
 
@@ -53,7 +53,7 @@ namespace Core.Utilities.Helper
             return result.Path2;
         }
 
-        public static IResult Delete(string path)
+        public IResult Delete(string path)
         {
             try
             {

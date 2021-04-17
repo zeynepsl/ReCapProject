@@ -8,8 +8,8 @@ namespace Core.Utilities.Business
     public class BusinessRules
     {
         //Bu iş kuralları mı nasıl gönderebilirim
-        //params verdiğinde istediğin kadar (virgülle ayırarak) IResult verebilirsin
-        //gönderdiğin bütün parametreler c# by array haline getirilir logics e atar
+        //params verdiğinde istediğin kadar (virgülle ayırarak) IResult verebilirim
+        //gönderdiğin bütün parametreler c# tarafından array haline getirilir logics e atanır
         //parametre ile gönderilen iş kurallarından
         //başarısız olanı business a haber liyoruz
 

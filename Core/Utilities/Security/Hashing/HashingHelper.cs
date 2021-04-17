@@ -6,7 +6,6 @@ namespace Core.Utilities.Security.Hashing
 {
     public class HashingHelper
     {
-        //out == parametreyi gönderdiğinde değişen nsene aynı zamanda o byte array e aktarılacak
         public static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using(var hmac = new System.Security.Cryptography.HMACSHA512())
@@ -29,8 +28,11 @@ namespace Core.Utilities.Security.Hashing
                     }
                 }
             }
+
             return true;
-            //garip bir şekilde true ve false bu şekilde konumlandığında çalışıyor :|
         }
+
+
+        //garip bir şekilde true üste ve false alta konumlandığında çalışıyor :|
     }
 }

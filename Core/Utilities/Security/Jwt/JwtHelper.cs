@@ -15,8 +15,8 @@ namespace Core.Utilities.Security.Jwt
     public class JwtHelper : ITokenHelper
     {
         public IConfiguration Configuration { get; }
-        private TokenOptions _tokenOptions;//konfigürasyon dosyasındaki TokenOptions alanını _tokenOptions a aktarıcam
-        private DateTime _accessTokenExpiration;//ben bunu her yerde kullanabilirim = kurucudaa
+        private TokenOptions _tokenOptions;
+        private DateTime _accessTokenExpiration;
 
         //Configuration dosyası, yapısı vasıtasıyla appsettings deki TokenOptions bilgilerini okuyacağız:
         public JwtHelper(IConfiguration configuration)
@@ -26,7 +26,7 @@ namespace Core.Utilities.Security.Jwt
             //Configuration dan TokenOptions section nını(bölümünü )al
             //TokenOptions nesnesine bağla aktar
             //artık elimde bir nesne var
-            //GetSection(audience) ... vs demiyorum her seferinde direkt olarak her şeyi TokenOptions a attım
+
             _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
         }
         public AccessToken CreateToken(User user, List<OperationClaim> operationClaims)
@@ -34,7 +34,7 @@ namespace Core.Utilities.Security.Jwt
             _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);//bu token ne zaman bitecek 
 
             //bir tokenı oluştururken kendimize şifreli bir token oluşturucaz
-            //bunu böyle de yazabilirdim ama ben bunu diğer projelerde de kullanmak sityorum
+            //bunu böyle de yazabilirdim ama ben bunu diğer projelerde de kullanmak istiyorum:
             //var securitykey= return new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
             //_tokenOptions daki security key i kullanarak security key oluştur
@@ -45,11 +45,9 @@ namespace Core.Utilities.Security.Jwt
 
             var jwt = CreateJwtSecurityToken(_tokenOptions, user, signingCredentials, operationClaims);
 
-            //elimizde token mevcut ama elimizdeki bilgilere göre bir handler vasıtasıyla yazmalıyız
+            //bu nesneyle(handler vasıtasıyla) elimdeki token bilgisini yazdırıcam:
             var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
-            //bu nesneyle elimdeki token bilgisini yazdırıcam
-            var token = jwtSecurityTokenHandler.WriteToken(jwt);
-            //elimizdeki token nesnesini string e çevirdik
+            var token = jwtSecurityTokenHandler.WriteToken(jwt);//elimizdeki token nesnesini string e çevirdik
 
             //artık AccessToken döndürmeliym
             return new AccessToken
@@ -67,7 +65,7 @@ namespace Core.Utilities.Security.Jwt
                 audience:tokenOptions.Audience,
                 expires:_accessTokenExpiration,
                 //expires:tokenOptions.AccessTokenExpiration,  AccessTokenExpiration int olarak tutmuştuk hata verdi, datetime a çevirmeliyiz
-                notBefore:DateTime.Now,//expires şu andan önce ise geçerli değil
+                notBefore:DateTime.Now,
                 //claims:operationClaims,
                 claims:SetClaim(user, operationClaims),
                 signingCredentials:signingCredentials
@@ -81,8 +79,7 @@ namespace Core.Utilities.Security.Jwt
             //claims.Add(new Claim("email", user.Email));//bu çalışır ama extends edicez claim nesnesini
             claims.AddName($"{user.FirstName} {user.LastName}");
             claims.AddEmail(user.Email);
-            claims.AddRoles(operationClaims.Select(oC => oC.Name).ToArray());
-            //operationClaims bir koleksiyon onu array e çevir
+            claims.AddRoles(operationClaims.Select(oC => oC.Name).ToArray());//operationClaims bir koleksiyon onu array e çevir
             return claims;
         }
     }
