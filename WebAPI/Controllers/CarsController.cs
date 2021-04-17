@@ -32,7 +32,7 @@ namespace WebAPI.Controllers
         //********bunun sorunu : ICarService ile ilgili elinde somut bir referans yok. Bunun İçin :
         //IoC Container -- inversion of control
         //bellekteki listemize ==== new CarManager(), new EfCartDal() referansları koyacağız
-        //Kim ihtiyaç duyarsa ona vereceğiz ---> Startup.cs
+        //Kim ihtiyaç duyarsa ona vereceğiz -->AutofacBusinessModule
 
         [HttpGet("getall")] //"get request" gerçekleştiriyor
         //https://localhost:44334/api/cars/getall birisi böyle bir istekte bulunursa ona "Arabaların Tümünü" Listele : 
