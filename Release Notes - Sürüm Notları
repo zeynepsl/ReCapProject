@@ -84,4 +84,14 @@ Autofac Desteği eklendi
 
  3. WebAPI
   Autofac Container kullanımı aktif hale getirildi
-  
+
+V 1.9
+
+V 1.10
+HATA_NO:2
+Sisteme resim ekleyememe
+ ImagePath in kapasitesi arttırıldı
+
+HATA_NO:3
+Sisteme Login olamama
+ PasswordHash ve PassWordsalt Binary tipinden varBinary ye çekildi
