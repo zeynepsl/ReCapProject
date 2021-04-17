@@ -34,7 +34,7 @@ namespace Business.Concrete
             {
                 return result;
             }
-            carImage.ImagePath = FileHelper.Add(file);
+            carImage.ImagePath = new FileHelper().Add(file);
             carImage.Date = DateTime.Now;
             _carImageDal.Add(carImage);
 
@@ -45,7 +45,7 @@ namespace Business.Concrete
         {
             var oldpath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\wwwroot")) 
                 + _carImageDal.Get(p => p.Id == carImage.Id).ImagePath;
-            IResult result = BusinessRules.Run(FileHelper.Delete(oldpath));
+            IResult result = BusinessRules.Run(new FileHelper().Delete(oldpath));
 
             if (result != null)
             {
@@ -66,7 +66,7 @@ namespace Business.Concrete
             }
             var oldpath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\wwwroot")) 
                 + _carImageDal.Get(p => p.Id == carImage.Id).ImagePath;
-            carImage.ImagePath = FileHelper.Update(oldpath, file);
+            carImage.ImagePath = new FileHelper().Update(oldpath, file);
             carImage.Date = DateTime.Now;
             _carImageDal.Update(carImage);
             return new SuccessResult(Messages.Updated);

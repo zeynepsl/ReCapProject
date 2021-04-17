@@ -18,7 +18,6 @@ namespace Business.DependencyResolvers.Autofac
         //ama ortak olanları Core katmanına taşıyacağız
     {
         //uyg hayata geçtiği zaman, ayağa kalktığı zaman bu çalışır
-        //Biri ICarService isterse ona CarManager instance ı ver vs..
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<CarManager>().As<ICarService>().SingleInstance();
@@ -41,6 +40,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<CarImageManager>().As<ICarImageService>().SingleInstance();
             builder.RegisterType<EfCarImageDal>().As<ICarImageDal>().SingleInstance();
+
+            builder.RegisterType<OperationClaimManager>().As<IOperationClaimService>().SingleInstance();
+            builder.RegisterType<EfOperationClaimDal>().As<IOperationClaimDal>().SingleInstance();
 
             builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>().SingleInstance();

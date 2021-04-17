@@ -37,8 +37,6 @@ namespace Business.Concrete
             {
                 return new ErrorDataResult<User>(Messages.UserNotFound);
             }
-            //şifreyi saltlayıp hash ini burada alabillrm
-            //ama bu operasyonu başka yerlerde de ihtiyaç duyabiliyorum ve başka projeler de de kullanblirim
             if(!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
             {
                 return new ErrorDataResult<User>(Messages.PasswordError);              

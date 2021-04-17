@@ -14,8 +14,7 @@ namespace Business.BusinessAspects.Autofac
     public class SecuredOperation : MethodInterception
     {
         private string[] _roles;
-        private IHttpContextAccessor _httpContextAccessor;
-        //her istek için httpContext i oluşur
+        private IHttpContextAccessor _httpContextAccessor;//her istek için httpContext oluşur
 
         public SecuredOperation(string roles)
         {

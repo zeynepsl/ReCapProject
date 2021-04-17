@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -30,6 +31,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CarValidator))]
+        [SecuredOperation("car.add, admin, moderator")]
         public IResult Add(Car car)
         {
             //if (car.Description.Length > 2 && car.DailyPrice > 0)//eğer ki iş kodlarından geçerse,
@@ -59,6 +61,7 @@ namespace Business.Concrete
             
         }
 
+        [SecuredOperation("car.getall, admin, moderator")]
         public IDataResult<List<Car>> GetAll()
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListed);
@@ -67,37 +70,37 @@ namespace Business.Concrete
         //işlem sonucum          (Success)  : true
         //bilgilendirici mesajım (Messsage) : Messages.CarsListed
 
+        [SecuredOperation("car.getcarsbybrandid, admin, moderator")]
         public IDataResult<List<Car>> GetCarsByBrandId(int id)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.CarId == id));
         }
 
+        [SecuredOperation("car.getcarsbycolorid, admin, moderator")]
         public IDataResult<List<Car>> GetCarsByColorId(int id)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id));
         }
 
+        [SecuredOperation("car.getcardetails, admin, moderator")]
         public IDataResult<List<CarDetailsDto>> GetCarDetails()
         {
             return new SuccessDataResult<List<CarDetailsDto>>(_carDal.GetCarDetails());
         }
 
+        [SecuredOperation("car.delete, admin, moderator")]
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
             return new SuccessResult(Messages.Deleted);
         }
 
+        [SecuredOperation("car.update, admin, moderator")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult Update(Car car)
-        {
-            if(car.Description.Length > 2 && car.DailyPrice > 0)
-            {
-                _carDal.Update(car);
-                return new SuccessResult(Messages.CarUpdated);
-            }
-
-            return new ErrorResult(Messages.CarDescriptionInValid);
+        { 
+            _carDal.Update(car);
+            return new SuccessResult(Messages.CarUpdated);
         }
 
     }

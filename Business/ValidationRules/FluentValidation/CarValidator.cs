@@ -8,9 +8,7 @@ namespace Business.ValidationRules.FluentValidation
 {
     public class CarValidator:AbstractValidator<Car>
         //Car için burada Validator(Doğrulayıcı) yazıyorum
-        //Car için Validator
     {
-        //hangi nesne için validator yazacaksam onu buraya yazıyorum:
         public CarValidator()
         {
             RuleFor(c => c.CarName).NotEmpty();
