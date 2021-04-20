@@ -86,8 +86,16 @@ Autofac Desteği eklendi
   Autofac Container kullanımı aktif hale getirildi
 
 V 1.9
+CarImages (Araba Resimleri) tablosu oluşturuldu.
+Api üzerinden arabaya resim ekleyecek sistem yazıldı
+Resimler proje içerisinde bir klasörde tutuluyor. Resimler yüklendiği isimle değil, GUID ile dosyalanıyor.
+Resim silme, güncelleme yetenekleri eklendi
+Resmin eklendiği tarih sistem tarafından atanıyor
+Bir arabaya ait resimleri listeleme imkanı oluşturuldu
+Eğer bir arabaya ait resim yoksa, default bir resim gösterildi.
 
 V 1.10
+JWT entegrasyonu yapıldı.
 HATA_NO:2
 Sisteme resim ekleyememe
  ImagePath in kapasitesi arttırıldı
