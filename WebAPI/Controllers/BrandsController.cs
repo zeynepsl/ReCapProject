@@ -12,13 +12,8 @@ namespace WebAPI.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class BrandsController : ControllerBase
-    //Brands'a, gelen requestleri yönetmesi için controller veriyoruz
-
-    {
-        //Business katmanındaki BrandManager'deki tüm metotlarımızı birer request haline getireceğiz
-        //bunu yapabilmek için : 
+    { 
         IBrandService _brandService;
-        //loosely coupled - gevşek bağımlılık - soyuta bağımlılık
 
         public BrandsController(IBrandService brandService)
         {

@@ -12,11 +12,8 @@ namespace WebAPI.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class CustomersController : ControllerBase
-    //Customers'a, gelen requestleri yönetmesi için controller veriyoruz
     {
-        //Business katmanındaki CustomerManager'deki tüm metotlarımızı birer request haline getireceğiz
-        //bunu yapabilmek için :
-        ICustomerService _customerService;//loosely coupled - gevşek bağımlılık - soyuta bağımlılık
+        ICustomerService _customerService;
 
         public CustomersController(ICustomerService customerService)
         {

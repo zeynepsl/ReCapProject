@@ -21,7 +21,6 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
 
-        //arabayı kiralayabilmek için Returndate(teslim tarihi) null dan farklı olacak
         [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {

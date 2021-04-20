@@ -13,12 +13,8 @@ namespace WebAPI.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
-    //Users'a, gelen requestleri yönetmesi için controller veriyoruz
     {
-        //Business katmanındaki UserManager'deki tüm metotlarımızı birer request haline getireceğiz
-        //bunu yapabilmek için : 
         IUserService _userService;
-        //loosely coupled - gevşek bağımlılık - soyuta bağımlılık
 
         public UsersController(IUserService userService)
         {

@@ -23,7 +23,6 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ColorValidator))]
         public IResult Add(Customer customer)
         {
-            //iş kodları
             _customerDal.Add(customer);
             return new SuccessResult(Messages.Added);
         }

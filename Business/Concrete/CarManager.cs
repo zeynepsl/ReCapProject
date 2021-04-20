@@ -2,6 +2,8 @@
 using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Business;
@@ -32,6 +34,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(CarValidator))]
         [SecuredOperation("car.add, admin, moderator")]
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
         {
             //if (car.Description.Length > 2 && car.DailyPrice > 0)//eğer ki iş kodlarından geçerse,
@@ -47,11 +50,11 @@ namespace Business.Concrete
             //{
             //    throw new ValidationException(result.Errors);
             //}
-            //ama burada değişen sadece CarValidator ve car, Core a aktaracağız evrensel kulllanılabilir hale getireceğiz
+            //ama burada değişen sadece CarValidator ve car, CORE'A AKTARICAĞIZ evrensel kulllanılabilir hale getireceğiz
 
             // ValidationTool.Validate(new CarValidator(), car);
 
-            //log, cache, transaction vs gelecek buraya karışacak, bunun yerine AOP kullanıyoruz
+            //log, cache, transaction vs gelecek buraya KARIŞACAK, bunun yerine AOP kullanıyoruz
             //metodun en üstüne yazdık VEE SUPERRR
 
             //business codes
@@ -60,8 +63,9 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarAdded); 
             
         }
-
+        
         [SecuredOperation("car.getall, admin, moderator")]
+        [CacheAspect]
         public IDataResult<List<Car>> GetAll()
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListed);
@@ -89,6 +93,7 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("car.delete, admin, moderator")]
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
@@ -96,11 +101,24 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("car.update, admin, moderator")]
-        [ValidationAspect(typeof(CarValidator))]
+        [ValidationAspect(typeof(CarValidator))] 
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult Update(Car car)
         { 
             _carDal.Update(car);
             return new SuccessResult(Messages.CarUpdated);
+        }
+
+        [TransactionScopeAspect]
+        public IResult AddTransactionalTest(Car car)
+        {
+            Add(car);
+            if (car.DailyPrice < 50)
+            {
+                throw new Exception("");
+            }
+            Add(car);
+            return null;
         }
 
     }

@@ -17,13 +17,13 @@ namespace Business.Concrete
     {
         IUserDal _userDal;
 
-        //dependence enjection tasarım deseni ile constructor da in:
+        //dependence enjection tasarım deseni ile constructor da injection:
         public UserManager(IUserDal userDal)
         {
             _userDal = userDal;
         }
 
-        //iş kodlarından geçerse, DataAccess katmanına bağlanacağız
+        //iş kodlarından geçerse, DataAccess katmanına bağlanacağız(satır 30)
         [ValidationAspect(typeof(UserValidator))]
         public IResult Add(User user)
         {

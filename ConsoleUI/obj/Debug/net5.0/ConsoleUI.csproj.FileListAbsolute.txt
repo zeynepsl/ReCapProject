@@ -77,3 +77,8 @@ C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.AspNe
 C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.Extensions.Configuration.dll
 C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\System.IO.Pipelines.dll
+C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.AspNetCore.Http.dll
+C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.AspNetCore.WebUtilities.dll
+C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.Extensions.ObjectPool.dll
+C:\Users\HP\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.Net.Http.Headers.dll

@@ -36,7 +36,7 @@ namespace WebAPI.Controllers
 
         [HttpGet("getall")] //"get request" gerçekleştiriyor
         //https://localhost:44334/api/cars/getall birisi böyle bir istekte bulunursa ona "Arabaların Tümünü" Listele : 
-        [Authorize(Roles ="Cars.List")]
+        //[Authorize(Roles ="Cars.List")]
         public IActionResult GetAll()
         {
             var result = _carService.GetAll();

@@ -12,12 +12,8 @@ namespace WebAPI.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class RentalsController : ControllerBase
-    //Colors'a, gelen requestleri yönetmesi için controller veriyoruz
     {
-        //Business katmanındaki RentalManager'deki tüm metotlarımızı birer request haline getireceğiz
-        //bunu yapabilmek için :
         IRentalService _rentalService;
-        //loosely coupled - gevşek bağımlılık - soyuta bağımlılık
 
         public RentalsController(IRentalService rentalService)
         {

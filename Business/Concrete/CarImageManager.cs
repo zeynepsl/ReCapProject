@@ -72,17 +72,6 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Updated);
         }
 
-        public IDataResult<CarImage> Get(CarImage carImage)
-        {
-            //IResult result = BusinessRules.Run(CheckIfThereIsPictureOfCar(carImage.CarId));
-            //if (result != null)
-            //{
-            //    return new ErrorDataResult<CarImage>();
-            //}
-            //return new SuccessDataResult<CarImage>(CheckIfThereIsPictureOfCar(carImage.CarId));
-            return new SuccessDataResult<CarImage>(_carImageDal.Get(c => c.CarId == carImage.CarId));
-        }
-
         public IDataResult<List<CarImage>> GetAll()
         {
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(), Messages.Listed);
