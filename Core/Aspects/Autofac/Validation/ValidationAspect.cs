@@ -14,7 +14,7 @@ namespace Core.Aspects.Autofac.Validation
     {
         private Type _validatorType;//attribute te type ile geçmek zorundayız
 
-        //defensive coding - savunma odaklı
+        //defensive coding - savunma odaklı kodlama:
         public ValidationAspect(Type validatorType)
         {
             if (!typeof(IValidator).IsAssignableFrom(validatorType))                   //gönderilen validatorType bir validator değilse

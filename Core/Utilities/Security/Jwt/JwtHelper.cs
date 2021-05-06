@@ -23,7 +23,7 @@ namespace Core.Utilities.Security.Jwt
         {
             Configuration = configuration;
             _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
-            //Configuration dan TokenOptions section nını(bölümünü )al
+            //Configuration dan, TokenOptions section'nını(bölümünü )al
             //TokenOptions nesnesine bağla aktar
             //artık elimde bir nesne var
 
@@ -45,7 +45,7 @@ namespace Core.Utilities.Security.Jwt
 
             var jwt = CreateJwtSecurityToken(_tokenOptions, user, signingCredentials, operationClaims);
 
-            //bu nesneyle(handler vasıtasıyla) elimdeki token bilgisini yazdırıcam:
+            //Handler nesnesi vasıtasıyla elimdeki token bilgisini yazdırıcam:
             var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
             var token = jwtSecurityTokenHandler.WriteToken(jwt);//elimizdeki token nesnesini string e çevirdik
 
@@ -64,7 +64,7 @@ namespace Core.Utilities.Security.Jwt
                 issuer:tokenOptions.Issuer,
                 audience:tokenOptions.Audience,
                 expires:_accessTokenExpiration,
-                //expires:tokenOptions.AccessTokenExpiration,  AccessTokenExpiration int olarak tutmuştuk hata verdi, datetime a çevirmeliyiz
+                //expires:tokenOptions.AccessTokenExpiration,  AccessTokenExpiration int olarak tutmuştuk hata verdi, datetime a çevirmeliyiz:
                 notBefore:DateTime.Now,
                 //claims:operationClaims,
                 claims:SetClaim(user, operationClaims),
@@ -76,7 +76,7 @@ namespace Core.Utilities.Security.Jwt
         private IEnumerable<Claim> SetClaim(User user,List<OperationClaim> operationClaims)
         {
             var claims = new List<Claim>();
-            //claims.Add(new Claim("email", user.Email));//bu çalışır ama extends edicez claim nesnesini
+            //claims.Add(new Claim("email", user.Email));//bu çalışır ama extends edicez Claim nesnesini
             claims.AddName($"{user.FirstName} {user.LastName}");
             claims.AddEmail(user.Email);
             claims.AddRoles(operationClaims.Select(oC => oC.Name).ToArray());//operationClaims bir koleksiyon onu array e çevir

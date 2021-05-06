@@ -32,7 +32,5 @@ namespace Core.Utilities.Security.Hashing
             return true;
         }
 
-
-        //garip bir şekilde true üste ve false alta konumlandığında çalışıyor :|
     }
 }

@@ -12,6 +12,7 @@ namespace Core.Utilities.Security.Jwt
         //Token Üretme:
         //ihityacım olan şey user, o da bu user bilgisine göre token üretecek
         //kullanıcının rollerinin de token a eklenmesini istiyorum
+
         //kullanıcı bilgisi ve roller
         AccessToken CreateToken(User user, List<OperationClaim> operationClaims);
     }

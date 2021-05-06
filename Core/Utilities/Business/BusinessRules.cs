@@ -7,12 +7,11 @@ namespace Core.Utilities.Business
 {
     public class BusinessRules
     {
-        //Bu iş kuralları mı nasıl gönderebilirim
-        //params verdiğinde istediğin kadar (virgülle ayırarak) IResult verebilirim
-        //gönderdiğin bütün parametreler c# tarafından array haline getirilir logics e atanır
-        //parametre ile gönderilen iş kurallarından
-        //başarısız olanı business a haber liyoruz
-
+        //Bu iş kurallarımı nasıl gönderebilirim
+        //params verdiğimde istediğim kadar (virgülle ayırarak) IResult verebilirim
+        //gönderdiğim bütün parametreler c# tarafından array haline getirilir logics e atanır
+        
+        //parametre ile gönderilen iş kurallarından başarısız olanı Business katmanına haber liyoruz
         public static IResult Run(params IResult[] logics)
         {
             foreach(var logic in logics)

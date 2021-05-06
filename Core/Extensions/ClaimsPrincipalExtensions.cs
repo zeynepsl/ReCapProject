@@ -7,7 +7,7 @@ using System.Text;
 namespace Core.Extensions
 {
     public static class ClaimsPrincipalExtensions
-    //ClaimsPrincipal : o an jwt ile gelen bir kişinin claimleirne ulaşmak için olan class
+    //ClaimsPrincipal : o an jwt ile gelen bir kişinin claimlerine ulaşmak için olan class
     {
         public static List<string> Claims(this ClaimsPrincipal claimsPrincipal, string claimType)
         {

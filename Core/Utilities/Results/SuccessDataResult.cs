@@ -5,7 +5,7 @@ using System.Text;
 namespace Core.Utilities.Results
 {
     public class SuccessDataResult<T> : DataResult<T>
-    //bu Class ta işlem sonucunu default true yapıyoruz
+    //bu Class ta, işlem sonucunu default olrak true yapıyoruz
     {
         public SuccessDataResult(T data, string message):base(data, true, message)
         {

@@ -9,9 +9,9 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarRentalContext:DbContext
     {
-        //Context : db tabloları ile proje classlarını bağlamak
-        //sql server adı : Server = (localdb)\mssqllocalDB
-        //database adı : Database = CarRentalDataBase
+        //Context        : db tabloları ile proje classlarını bağlamak
+        //sql server adı : Server   = (localdb)\mssqllocalDB
+        //database adı   : Database = CarRentalDataBase
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server = (localdb)\mssqllocalDB; Database = CarRentalDataBase; Trusted_Connection = true");
