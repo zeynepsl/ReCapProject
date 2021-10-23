@@ -1,12 +1,28 @@
-# ReCapProject - Araba Kiralama Sistemi
+<div align="center">
+  <h1>Car Rental Project</h1>
+  <p>It is a project where CRUD operations can be applied and can be used to rent a car..</p>
+  <a href="https://github.com/zeynepsl/ReCapProject/issues">report bug</a> - 
+  <a href="https://github.com/zeynepsl/ReCapProject/issues">request feature</a>
+</div>
 
-Entegre Geliştirme Ortamı : Visual Studio 2019
+# About the project
 
-## Kullanılan Teknolojiler
+## Technologies used
+- Integrated Development Environment: Visual Studio 2019
+- C#
+- ASP.NET
+- EntityFramework Core
+- Autofac
+- FluentValidation
+- Sql Server
+- AOP
+- JWT
 
-C#, ASP.NET, EntityFramework Core, Autofac, FluentValidation, Sql Server, AOP, JWT
+## Features
+- CarRental has been prepared with C# programming language and Layered architectural structure (Entities, DataAccess, Business, Core and WebAPI layers) under the name of ASP Net Core platform.
+- Information is kept confidential during the registration process.
+- JWT integration, Transaction, Cache, Validation and Performance aspects have been implemented.
+- Added FluentValidation support for Validation and Autofac support for IoC.
 
-## Özellikler
-
-CarRental, ASP Net Core platformu adı altında C# programlama dili ve Katmanlı mimari yapısı(Entities, DataAccess, Business, Core ve WebAPI katmanları) ile hazırlanmıştır.CRUD işlemlerinin uygulanabileceği, araç kiralamak için kullanılabilecek bir projedir ve kayıt sürecinde bilgiler gizli tutulur. SOLID prensipleri dikkate alınarak yazılmıştır. JWT entegrasyonu, Transaction, Cache, Validation ve Performance aspect'lerinin implementasyonu gerçekleştirilmiş; Validation için FluentValidation desteği, IoC için ise Autofac desteği eklenmiştir
-
+## Acknowledgements
+- [Engin Demiroğ](https://github.com/engindemirog)
