@@ -9,7 +9,7 @@
 
 ## Technologies used
 - Integrated Development Environment: Visual Studio 2019
-- C#
+- [C#](https://visualstudio.microsoft.com/vs/)
 - ASP.NET
 - EntityFramework Core
 - Autofac
@@ -19,7 +19,12 @@
 - JWT
 
 ## Features
-- CarRental has been prepared with C# programming language and Layered architectural structure (Entities, DataAccess, Business, Core and WebAPI layers) under the name of ASP Net Core platform.
+- CarRental has been prepared with C# programming language and Layered architectural structure 
+([Entities](https://github.com/zeynepsl/ReCapProject/tree/master/Entities), 
+[DataAccess](https://github.com/zeynepsl/ReCapProject/tree/master/DataAccess), 
+[Business](https://github.com/zeynepsl/ReCapProject/tree/master/Business), 
+[Core](https://github.com/zeynepsl/ReCapProject/tree/master/Core) and 
+[WebAPI](https://github.com/zeynepsl/ReCapProject/tree/master/WebAPI) layers) under the name of ASP Net Core platform.
 - Information is kept confidential during the registration process.
 - JWT integration, Transaction, Cache, Validation and Performance aspects have been implemented.
 - Added FluentValidation support for Validation and Autofac support for IoC.
