@@ -1,12 +1,12 @@
 <div align="center">
   <h1>Car Rental Project</h1>
-  <p>It is a project where CRUD operations can be applied and can be used to rent a car..</p>
+  <p>It is a project where CRUD operations can be applied and can be used to rent a car.</p>
   <a href="https://github.com/zeynepsl/ReCapProject/issues">report bug</a> - 
   <a href="https://github.com/zeynepsl/ReCapProject/issues">request feature</a>
 </div>
 
 # About the project
-
+[Car Rental Project](https://github.com/zeynepsl/ReCapProject)
 ## Technologies used
 - Integrated Development Environment: Visual Studio 2019
 - [C#](https://visualstudio.microsoft.com/vs/)
